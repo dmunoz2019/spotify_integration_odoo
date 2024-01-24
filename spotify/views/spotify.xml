@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+   <!-- lets create a root menu with a form and a tree list -->
+
+    <menuitem
+        id="spotify_menu_root"
+        name="Spotify"
+        sequence="1"
+        />
+
+    <record id="spotify_menu_root_form" model="ir.ui.view">
+        <field name="name">spotify.recommendation.form</field>
+        <field name="model">spotify.recommendation</field>
+        <field name="arch" type="xml">
+            <form string="Spotify recommendation">
+                <sheet>
+                    <group>
+                        <field name="partner_id"/>
+                        <field name="artist"/>
+                        <field name="track"/>
+                        <field name="album"/>
+                        <field name="url"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="spotify_menu_root_tree" model="ir.ui.view">
+        <field name="name">spotify.menu.root.tree</field>
+        <field name="model">spotify.recommendation</field>
+        <field name="arch" type="xml">
+            <tree string="Spotify Menu Root">
+                <field name="partner_id"/>
+                        <field name="artist"/>
+                        <field name="track"/>
+                        <field name="album"/>
+                        <field name="url"/>
+            </tree>
+        </field>
+
+    </record>
+
+    <!-- lets create an action for the root menu -->
+
+    <record id="spotify_menu_root_action" model="ir.actions.act_window">
+        <field name="name">Spotify Menu Root</field>
+        <field name="res_model">spotify.recommendation</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+</odoo>
